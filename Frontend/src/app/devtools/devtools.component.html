@@ -1,0 +1,26 @@
+<div *ngFor="let campus of campuses">
+    <details (toggle)="loadPools(campus)">
+      <summary>{{ campus.campusName }}</summary>
+  
+      <div *ngIf="pools[campus.campusId]">
+        <div *ngFor="let pool of pools[campus.campusId]">
+          <details (toggle)="loadPcs(pool)">
+            <summary>{{ pool.pcPoolName }}</summary>
+  
+            <ul *ngIf="pcs[pool.pcPoolId]">
+              <li *ngFor="let pc of pcs[pool.pcPoolId]">
+                {{ pc.hostname }} —
+                {{ pc.ipaddress }} —
+                {{ pc.macaddress }} —
+                {{ pc.status }} —
+                busy: {{ pc.busy }}
+              </li>
+            </ul>
+  
+          </details>
+        </div>
+      </div>
+  
+    </details>
+  </div>
+  

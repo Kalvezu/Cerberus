@@ -1,0 +1,26 @@
+<div class="home-bg py-5">
+  <ul class="nav nav-tabs">
+    <li class="nav-item" *ngFor="let c of campuses; let i = index">
+      <button class="nav-link"
+              [class.active]="i === 0"
+              data-bs-toggle="tab"
+              [attr.data-bs-target]="'#campus-' + c.campusId">
+        {{ c.campusName }}
+      </button>
+    </li>
+  </ul>
+  
+  <div class="tab-content">
+    <div class="tab-pane fade"
+         *ngFor="let c of campuses; let i = index"
+         [class.show]="i === 0"
+         [class.active]="i === 0"
+         [attr.id]="'campus-' + c.campusId">
+      <div class="row g-4">
+        <div class="col-12 col-md-4" *ngFor="let p of c.pcPools">
+          <button class="pool-card w-100">{{ p.pcPoolName }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
