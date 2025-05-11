@@ -31,23 +31,24 @@ export class DevtoolsComponent implements OnInit {
   campuses: CampusDto[] = [];
   pools: { [campusId: number]: PcPoolDto[] } = {};
   pcs: { [poolId: number]: PcDto[] } = {};
+  api = "http://localhost:8080/api";
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<CampusDto[]>('http://localhost:8080/api/campuses')
+    this.http.get<CampusDto[]>(`${this.api}/campuses`)
       .subscribe(list => this.campuses = list);
   }
 
   loadPools(campus: CampusDto): void {
     if (this.pools[campus.campusId]) return;
-    this.http.get<PcPoolDto[]>(`/api/campuses/${campus.campusId}/pools`)
+    this.http.get<PcPoolDto[]>(`${this.api}/campuses/${campus.campusId}/pools`)
       .subscribe(list => this.pools[campus.campusId] = list);
   }
 
   loadPcs(pool: PcPoolDto): void {
     if (this.pcs[pool.pcPoolId]) return;
-    this.http.get<PcDto[]>(`/api/pools/${pool.pcPoolId}/pcs`)
+    this.http.get<PcDto[]>(`${this.api}/pools/${pool.pcPoolId}/pcs`)
       .subscribe(list => this.pcs[pool.pcPoolId] = list);
   }
 }

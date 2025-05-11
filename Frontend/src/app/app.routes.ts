@@ -3,7 +3,6 @@ import { LoginComponent } from './login/login.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { HomeComponent } from './home/home.component';
 import { authGuard } from './guard/auth.guard';
-import { LogsComponent } from './logs/logs.component';
 import { PcpoolComponent } from './pcpool/pcpool.component';
 import { DevtoolsComponent } from './devtools/devtools.component';
 
@@ -30,27 +29,21 @@ export const routes: Routes = [
         data: {allowedRoles: ['zimkgrp', 'zimkazubi', 'poolmgmt']}
     },
     {
-        path: 'logs',
-        component: LogsComponent,
-        canActivate: [authGuard],
-        data: {allowedRoles: ['poolmgmt']}
-      },
-      {
-        path: 'devtools',
-        component: DevtoolsComponent,
-        canActivate: [authGuard],
-        data: {allowedRoles: ['poolmgmt']}
-      },
-      {
-        path: 'pcpool',
-        component: PcpoolComponent,
-        canActivate: [authGuard],
-        data: {allowedRoles: ['zimkgrp', 'zimkazubi', 'poolmgmt']}
-      },
-      {
-        path: '**',
-        redirectTo: '/home'
-      }
+      path: 'devtools',
+      component: DevtoolsComponent,
+      canActivate: [authGuard],
+      data: {allowedRoles: ['poolmgmt']}
+    },
+    {
+      path: 'pcpool/:poolId',
+      component: PcpoolComponent,
+      canActivate: [authGuard],
+      data: {allowedRoles: ['zimkgrp', 'zimkazubi', 'poolmgmt']}
+    },
+    {
+      path: '**',
+      redirectTo: '/home'
+    }
 ];
 
 export class AppRoutingModule { }

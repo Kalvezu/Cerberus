@@ -1,0 +1,53 @@
+.main-nav {
+  height: 64px;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  font-family: var(--font-family-base);
+}
+
+.logo {
+  width: 35%;
+  margin-top: -10px;
+}
+
+.nav-link {
+  color: #333;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.logout-btn {
+  color: #333;
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.logout-btn:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}

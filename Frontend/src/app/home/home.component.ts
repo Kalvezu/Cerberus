@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
 export interface PcPoolDto {
@@ -17,7 +17,7 @@ export interface CampusDto {
 
 @Component({
   selector: 'app-home',
-  imports: [NgFor],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

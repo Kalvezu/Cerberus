@@ -1,0 +1,14 @@
+<nav class="main-nav px-4">
+    <div class="d-flex align-items-center gap-4">
+      <img class="logo" src="../../../assets/nav-logo.png" alt="Logo">
+      <a routerLink="/home" routerLinkActive="active" class="nav-link">Startseite</a>
+      <a routerLink="/devtools" routerLinkActive="active" class="nav-link">DevTools</a>
+    </div>
+  
+    <div class="d-flex align-items-center gap-4 ms-auto">
+      <span class="small text-nowrap">
+        <strong>Eingeloggt als:</strong> &nbsp;{{ userName }}
+      </span>
+      <button class="btn btn-link p-0 logout-btn" (click)="onLogout()">Logout</button>
+    </div>
+  </nav>

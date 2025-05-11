@@ -26,6 +26,10 @@ public class CampusService {
         this.pcPoolRepo = pcPoolRepo;
     }
 
+    
+    /** 
+     * @return List<CampusDto>
+     */
     public List<CampusDto> findAll() {
         return campusRepo.findAll().stream()
             .map(c -> {

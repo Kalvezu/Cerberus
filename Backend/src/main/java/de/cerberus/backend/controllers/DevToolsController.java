@@ -2,6 +2,7 @@ package de.cerberus.backend.controllers;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import de.cerberus.backend.service.PcService;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:4200")
 public class DevToolsController {
 
     private final CampusService campusService;
@@ -28,13 +30,17 @@ public class DevToolsController {
         this.pcService = pcService;
     }
 
+    
+    /** 
+     * @return List<CampusDto>
+     */
     @GetMapping("/campuses")
     public List<CampusDto> getCampuses() {
         return campusService.findAll();
     }
 
     @GetMapping("/campuses/{campusId}/pools")
-    public List<PcPoolDto> getPools(@PathVariable Long campusId) {
+    public List<PcPoolDto> getPools(@PathVariable Integer campusId) {
         return pcPoolService.findByCampus(campusId);
     }
 

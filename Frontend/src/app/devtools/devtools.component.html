@@ -1,4 +1,4 @@
-<div *ngFor="let campus of campuses">
+<div class="mt-4 devtools-wrapper" *ngFor="let campus of campuses">
     <details (toggle)="loadPools(campus)">
       <summary>{{ campus.campusName }}</summary>
   
@@ -7,15 +7,26 @@
           <details (toggle)="loadPcs(pool)">
             <summary>{{ pool.pcPoolName }}</summary>
   
-            <ul *ngIf="pcs[pool.pcPoolId]">
-              <li *ngFor="let pc of pcs[pool.pcPoolId]">
-                {{ pc.hostname }} —
-                {{ pc.ipaddress }} —
-                {{ pc.macaddress }} —
-                {{ pc.status }} —
-                busy: {{ pc.busy }}
-              </li>
-            </ul>
+            <table class="pc-table" *ngIf="pcs[pool.pcPoolId]">
+              <thead>
+                <tr>
+                  <th>Hostname</th>
+                  <th>IP Address</th>
+                  <th>MAC Address</th>
+                  <th>Status</th>
+                  <th>Beschäftigt?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let pc of pcs[pool.pcPoolId]">
+                  <td>{{ pc.hostname }}</td>
+                  <td>{{ pc.ipaddress }}</td>
+                  <td>{{ pc.macaddress }}</td>
+                  <td>{{ pc.status }}</td>
+                  <td>{{ pc.busy }}</td>
+                </tr>
+              </tbody>
+            </table>
   
           </details>
         </div>

@@ -10,9 +10,15 @@ import de.cerberus.backend.repository.UsersRepository;
 
 @Service
 public class UsersService {
+    
     @Autowired
     private UsersRepository usersRepository;
 
+    
+    /** 
+     * @param email
+     * @return Optional<Users>
+     */
     public Optional<Users> getUserByEmail(String email) {
         return usersRepository.findByEmail(email);
     }

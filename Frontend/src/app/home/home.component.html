@@ -18,7 +18,7 @@
          [attr.id]="'campus-' + c.campusId">
       <div class="row g-4">
         <div class="col-12 col-md-4" *ngFor="let p of c.pcPools">
-          <button class="pool-card w-100">{{ p.pcPoolName }}</button>
+          <button class="pool-card w-100" [routerLink]="['/pcpool', p.pcPoolId]">{{ p.pcPoolName }}</button>
         </div>
       </div>
     </div>

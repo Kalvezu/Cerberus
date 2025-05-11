@@ -1,37 +1,39 @@
 <div class="login-container">
-    <div class="login-box">
-      <h2 class="mb-5 text-center">Cerberus</h2>
-      @if (warn) {
-        <div class="login-warning">Benutzername oder Passwort falsch!</div>
-      }
-  
-      <form #myForm="ngForm" [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
-        <label class="form-label">
-          <input
-            formControlName="email"
-            name="email"
-            type="text"
-            placeholder="E-Mail"
-            required
-            class="input-field"
-          />
-        </label>
-  
-        <label class="form-label">
-          <input
-            name="password"
-            formControlName="password"
-            type="password"
-            placeholder="Password"
-            required
-            class="input-field"
-          />
-        </label>
-  
-        <button type="submit" class="login-button">
-          Anmelden
-        </button>
-      </form>
+  <div class="login-box">
+    <div class="login-header">
+      <img src="../../assets/cm-logo.svg" alt="ZIMK Logo" class="zimk-logo" />
     </div>
+
+    @if (warn) {
+      <div class="login-warning">Benutzername oder Passwort falsch!</div>
+    }
+
+    <form #myForm="ngForm" [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
+      <label class="form-label">
+        <input
+          formControlName="email"
+          name="email"
+          type="text"
+          placeholder="E-Mail"
+          required
+          class="input-field"
+        />
+      </label>
+
+      <label class="form-label">
+        <input
+          name="password"
+          formControlName="password"
+          type="password"
+          placeholder="Password"
+          required
+          class="input-field"
+        />
+      </label>
+
+      <button type="submit" class="login-button">
+        Anmelden
+      </button>
+    </form>
   </div>
-  
+</div>
